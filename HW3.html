@@ -369,6 +369,7 @@ summary {
 </div>
 
 
+<pre class="r"><code>setwd(&quot;~/Box Sync/Classes/CPSC 441 R/HW3&quot;)</code></pre>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
 <pre class="r"><code>my_mean = function(input_array) {
@@ -394,6 +395,30 @@ summary {
   return(answer)
   
 }</code></pre>
+</div>
+<div id="problem-2" class="section level2">
+<h2>Problem 2</h2>
+<pre class="r"><code>cropdata = read.csv('key_crop_yields.csv', header = TRUE)
+first_year = min(cropdata$Year)
+last_year = max(cropdata$Year)
+range = last_year - first_year
+print(c('The range of years is', range))</code></pre>
+<pre><code>## [1] &quot;The range of years is&quot; &quot;57&quot;</code></pre>
+</div>
+<div id="problem-3" class="section level2">
+<h2>Problem 3</h2>
+<pre class="r"><code>cropdata = read.csv('key_crop_yields.csv', header = TRUE)
+maize = cropdata$Maize..tonnes.per.hectare.
+maize_mean = round(my_mean(maize),2)
+print(c('The mean crop yield of maize in tonnes per hectare is ', maize_mean))</code></pre>
+<pre><code>## [1] &quot;The mean crop yield of maize in tonnes per hectare is &quot;
+## [2] &quot;3.02&quot;</code></pre>
+</div>
+<div id="problem-4" class="section level2">
+<h2>Problem 4</h2>
+<pre class="r"><code>cropdata = read.csv('key_crop_yields.csv', header = TRUE)
+entity = cropdata$Entity
+write.table(entity, file = 'Entity.txt', row.names = TRUE)</code></pre>
 </div>
 
 
