@@ -1,0 +1,74 @@
+---
+title: "HW3"
+author: "Gemma Clark"
+date: "Fall 2020"
+output: html_document
+---
+
+```{r}
+setwd("~/Box Sync/Classes/CPSC 441 R/HW3")
+```
+
+
+## Problem 1
+```{r}
+my_mean = function(input_array) {
+  
+  # Removes NA values
+  # I had to do this because I want to use length() 
+  # to calculate the denominator of the mean which 
+  # does not allow na.rm to be entered
+  j = 1
+  x = vector()
+  for (i in c(1:length(input_array))) {
+    if (is.na(input_array[i]) == FALSE) {
+      x[j] =input_array[i]
+      j = j + 1
+    }
+  }
+  
+  # Calculates mean
+  numerator = sum(x)
+  denominator = length(x)
+  answer = numerator/denominator
+  
+  return(answer)
+  
+}
+
+```
+
+
+## Problem 2
+```{r}
+cropdata = read.csv('key_crop_yields.csv', header = TRUE)
+first_year = min(cropdata$Year)
+last_year = max(cropdata$Year)
+range = last_year - first_year
+print(c('The range of years is', range))
+
+
+```
+
+
+## Problem 3
+```{r}
+cropdata = read.csv('key_crop_yields.csv', header = TRUE)
+maize = cropdata$Maize..tonnes.per.hectare.
+maize_mean = round(my_mean(maize),2)
+print(c('The mean crop yield of maize in tonnes per hectare is ', maize_mean))
+
+```
+
+
+
+## Problem 4
+```{r}
+cropdata = read.csv('key_crop_yields.csv', header = TRUE)
+entity = cropdata$Entity
+write.table(entity, file = 'Entity.txt', row.names = TRUE)
+
+
+```
+
+
