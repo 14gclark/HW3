@@ -46,7 +46,7 @@ cropdata = read.csv('key_crop_yields.csv', header = TRUE)
 first_year = min(cropdata$Year)
 last_year = max(cropdata$Year)
 range = last_year - first_year
-print(c('The range of years is', range))
+paste('The range of years is', range)
 
 
 ```
@@ -57,7 +57,7 @@ print(c('The range of years is', range))
 cropdata = read.csv('key_crop_yields.csv', header = TRUE)
 maize = cropdata$Maize..tonnes.per.hectare.
 maize_mean = round(my_mean(maize),2)
-print(c('The mean crop yield of maize in tonnes per hectare is ', maize_mean))
+paste('The mean crop yield of maize is', maize_mean, 'tonnes per hectare.')
 
 ```
 
